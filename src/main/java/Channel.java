@@ -2,9 +2,11 @@ public class Channel {
     private User[] users;
     private Message[] messages;
     private User[] admins;
+    private String channelName;
 
-    public Channel(User[] users, String[] adminUsernames) {
+    public Channel(User[] users, String[] adminUsernames, String channelName) {
         this.users = users;
+        this.channelName = channelName;
 
         admins = new User[adminUsernames.length];
         for (int i = 0; i < adminUsernames.length; i++) {
@@ -25,24 +27,25 @@ public class Channel {
         }
     }
 
-    public void SendMessage(User user, String messageText) {
+    public void newMessage(String messageText, String username) {
         boolean isAdmin = false;
         for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(user.getUsername())) {
+            if (users[i].getUsername().equals(username)) {
                 isAdmin = true;
             }
         }
         if (!isAdmin) return;
 
-        Message[] newMessages = new Message[messages.length + 1];
+        int messagesCount = 0;
+        if (messages != null) messagesCount = messages.length;
 
-        for (int i = 0; i < messages.length; i++) {
+        Message[] newMessages = new Message[messagesCount + 1];
+
+        for (int i = 0; i < messagesCount; ++i) {
             newMessages[i] = messages[i];
         }
 
-        Message newMessage = new Message(messageText, user.getUsername());
-
-        newMessages[newMessages.length - 1] = newMessage;
+        newMessages[messagesCount] = new Message(messageText, username);
+        messages = newMessages;
     }
-
 }
