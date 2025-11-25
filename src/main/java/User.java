@@ -9,10 +9,17 @@ public class User {
         this.gender = gender;
     }
 
+    public User() {
+        this.username = "";
+        this.age = 0;
+        this.gender = "";
+    }
+
     public String getUsername() {
         return username;
     }
     public int getAge() {
+
         return age;
     }
     public String getGender() {
