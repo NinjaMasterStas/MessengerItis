@@ -1,5 +1,6 @@
 public class Program {
     public static void main(String[] args) {
+
         User[] users = new User[] {
                 new User(),
                 new User("Юля", 19, "-"),
@@ -11,6 +12,7 @@ public class Program {
         group.newMessage("Привет. как дела?", "Шамиль");
         group.newMessage("хорощо", "Стасян");
         group.newMessage("Поздравляю", "Юля");
+        group.newMessage("Можете меня добавить", "Виталий");
 
         group.printUsers();
         group.printAllMessages();
