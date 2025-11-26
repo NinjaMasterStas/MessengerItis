@@ -26,25 +26,26 @@ public class Group {
     }
 
     public void newMessage(String messageText, String username) {
-        boolean isThisUserInGroup = false;
-        for (User user : users) {
+        boolean ThisIsUserInGroup = false;
+        for (User user: users) {
             if (user.getUsername().equals(username)) {
-                isThisUserInGroup = true;
+                ThisIsUserInGroup = true;
                 break;
             }
         }
-        if (!isThisUserInGroup) return;
+        if (!ThisIsUserInGroup) return;
 
-        int messagesCount = 0;
-        if (messages != null) messagesCount = messages.length;
+        int CountMessages = 0;
+        if (messages != null) CountMessages = messages.length;
 
-        Message[] newMessages = new Message[messagesCount + 1];
-
-        for (int i = 0; i < messagesCount; ++i) {
-            newMessages[i] = messages[i];
+        Message[] NewMessages = new Message[CountMessages + 1];
+        for (int i = 0; i < CountMessages; ++i) {
+            NewMessages[i] = messages[i];
         }
 
-        newMessages[messagesCount] = new Message(messageText, username);
-        messages = newMessages;
+        NewMessages[CountMessages] = new Message(messageText, username);
+        messages = NewMessages;
+
     }
 }
+
