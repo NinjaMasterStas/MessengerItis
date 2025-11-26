@@ -12,7 +12,7 @@ public class Program {
         group.newMessage("Привет. как дела?", "Шамиль");
         group.newMessage("хорощо", "Стасян");
         group.newMessage("Поздравляю", "Юля");
-        group.newMessage("Можете меня добавить", "Виталий");
+        group.newMessage("Можете меня добавить, пожалуйста", "Виталий");
 
         group.printUsers();
         group.printAllMessages();
