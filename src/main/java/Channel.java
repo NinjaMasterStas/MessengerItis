@@ -11,7 +11,6 @@ public class Channel {
         admins = new User[adminUsernames.length];
         for (int i = 0; i < adminUsernames.length; i++) {
             User admin = new User();
-
             boolean isAdminFinded = false;
             for (int j = 0; j < users.length; j++) {
                 if (users[j].getUsername().equals(adminUsernames[i])) {
@@ -47,5 +46,30 @@ public class Channel {
 
         newMessages[messagesCount] = new Message(messageText, username);
         messages = newMessages;
+    }
+
+    public void printAllMessages() {
+        System.out.println("Сообщения внутри канала: <" + channelName + ">:");
+        for (Message message : messages) {
+            System.out.println("Админ " + message.getSenderUsername() + " в " +
+                    message.getDate() + ": " + message.getMessage());
+        }
+        System.out.println();
+    }
+
+    public void printUsers() {
+        System.out.println("Пользователи внутри канала <" + channelName + ">:");
+        for (User user : users) {
+            System.out.println(user.getUsername());
+        }
+        System.out.println();
+    }
+
+    public void printAdmins() {
+        System.out.println("Админы внутри канала <" + channelName + ">:");
+        for (User admin : admins) {
+            System.out.println(admin.getUsername());
+        }
+        System.out.println();
     }
 }
