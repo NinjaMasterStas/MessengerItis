@@ -16,5 +16,15 @@ public class Program {
 
         group.printUsers();
         group.printAllMessages();
+
+        Channel channel = new Channel(users, new String[]{"Стасян"}, "Итис");
+        channel.newMessage("Всем привет", "Стасян");
+        channel.newMessage("Сегодня будет пара по алгему", "Стасян");
+        channel.newMessage("Вы рады?", "Стасян");
+
+
+        channel.printUsers();
+        channel.printAdmins();
+        channel.printAllMessages();
     }
 }
