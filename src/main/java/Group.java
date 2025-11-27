@@ -1,7 +1,11 @@
+import java.util.Random;
+
 public class Group {
     private User[] users;
     private Message[] messages;
     private String groupName;
+
+    private int timeOffset;
 
     public Group(User[] users, String groupName) {
         this.users = users;
@@ -43,9 +47,11 @@ public class Group {
             NewMessages[i] = messages[i];
         }
 
-        NewMessages[CountMessages] = new Message(messageText, username);
+        NewMessages[CountMessages] = new Message(messageText, username, timeOffset);
         messages = NewMessages;
 
+        Random random = new Random();
+        timeOffset += random.nextInt(30);
     }
 }
 

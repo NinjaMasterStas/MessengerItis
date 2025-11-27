@@ -1,8 +1,12 @@
+import java.util.Random;
+
 public class Channel {
     private User[] users;
     private Message[] messages;
     private User[] admins;
     private String channelName;
+
+    private int timeOffset;
 
     public Channel(User[] users, String[] adminUsernames, String channelName) {
         this.users = users;
@@ -44,8 +48,11 @@ public class Channel {
             newMessages[i] = messages[i];
         }
 
-        newMessages[messagesCount] = new Message(messageText, username);
+        newMessages[messagesCount] = new Message(messageText, username, timeOffset);
         messages = newMessages;
+
+        Random random = new Random();
+        timeOffset += random.nextInt(30);
     }
 
     public void printAllMessages() {
